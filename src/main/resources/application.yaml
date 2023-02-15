@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/stock_db
+    username: root                #Change your MySQL username here
+    password: f_Zr^RXmx8@ooco7    #Change your MySQL password here
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  servlet:
+    context-path: /bo
+  tmpFile:
+    path: /tmp/data
+
+logging:
+  level:
+    root: info
+
+

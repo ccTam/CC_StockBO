@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "87b7ecb2-fe82-4b02-941a-cb7330b2aa18",
+		"name": "Stock_bo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25190037"
+	},
+	"item": [
+		{
+			"name": "Stock_bo",
+			"item": [
+				{
+					"name": "/bo/stock/batchUpload",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"type": "file",
+									"src": "/D:/Programming/CodeChallenge/stock-backoffice/sample_data_file/dow_jones_index.data"
+								},
+								{
+									"key": "startRow",
+									"value": "5",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/bo/stock/batchUpload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bo",
+								"stock",
+								"batchUpload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bo/stock/AA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bo/stock/AA",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bo",
+								"stock",
+								"AA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/bo/stock/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quarter\": \"1\",\r\n    \"stock\": \"XX\",\r\n    \"date\": \"1/7/2011\",\r\n    \"open\": \"$15.82\",\r\n    \"high\": \"$16.72\",\r\n    \"low\": \"$15.78\",\r\n    \"close\": \"$16.42\",\r\n    \"volume\": \"239655616\",\r\n    \"percent_change_price\": \"3.79267\",\r\n    \"percent_change_volume_over_last_wk\": \"\",\r\n    \"previous_weeks_volume\": \"\",\r\n    \"next_weeks_open\": \"$16.71\",\r\n    \"next_weeks_close\": \"$15.97\",\r\n    \"percent_change_next_weeks_price\": \"-4.42849\",\r\n    \"days_to_next_dividend\": \"26\",\r\n    \"percent_return_next_dividend\": \"0.182704\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bo/stock/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bo",
+								"stock",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
