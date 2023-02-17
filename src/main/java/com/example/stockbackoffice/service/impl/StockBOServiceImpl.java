@@ -39,7 +39,7 @@ public class StockBOServiceImpl implements StockBOService {
     String TMP_FILE_PATH;
 
     @Override
-    public List<StockDto> readFromDataFile(MultipartFile uploadedFile, int startRow) {
+    public List<StockDto> readFromDataFile(MultipartFile uploadedFile, int startRow) throws Exception {
         Path dirPath = new File(System.getProperty("user.dir") + TMP_FILE_PATH).toPath();
         Path filePath = new File(System.getProperty("user.dir") + TMP_FILE_PATH + File.separator + uploadedFile.getOriginalFilename()).toPath();
         try {
@@ -94,7 +94,7 @@ public class StockBOServiceImpl implements StockBOService {
         return stockDtoList;
     }
 
-    private List<StockDto> processFile(Path filePath, int startRow) {
+    private List<StockDto> processFile(Path filePath, int startRow) throws Exception {
         List<StockDto> StockDtoList = new ArrayList<>();
         if (startRow < 2)
             startRow = 2;
@@ -120,6 +120,7 @@ public class StockBOServiceImpl implements StockBOService {
             } catch (Exception e) {
                 logger.error("processFile-Error occurred when reading line: {}", curRow);
                 e.printStackTrace();
+                throw new Exception(String.format("processFile-Error occurred when reading line: %s", curRow));
             }
         }
         return StockDtoList;

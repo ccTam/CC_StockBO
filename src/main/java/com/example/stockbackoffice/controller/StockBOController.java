@@ -27,7 +27,12 @@ public class StockBOController {
     @PostMapping("/batchUpload")
     private ResponseEntity<String> batchUpload(@RequestParam(name = "data") MultipartFile uploadedFile, @RequestParam(name = "startRow", required = false, defaultValue = "2") int startRow) {
         logger.info("Uploaded file={}", uploadedFile.getOriginalFilename());
-        List<StockDto> list = stockBOService.readFromDataFile(uploadedFile, startRow);
+        List<StockDto> list = null;
+        try {
+            list = stockBOService.readFromDataFile(uploadedFile, startRow);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
         logger.info("Total processed record(s): {}", list.size());
         return new ResponseEntity<>(String.format("%s record(s) uploaded", list.size()), HttpStatus.OK);
     }

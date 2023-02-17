@@ -22,6 +22,8 @@ This application was developed using:
 
 You can find a postman template for testing in `./postman_templete/Stock_bo.postman_collection.json`
 
+Note: postman can be buggy sometimes, for the _batchUpload_ API, you may need to check and uncheck the `Content-Type` in the header and re-select the upload file to get it work.
+
 # Further improvement:
 1. Avoid using root for DB management. It is better to have separate db_admin account to control access right
 2. Allow to accept data with dynamic fields (Currently only accept data with fixed number of fields)

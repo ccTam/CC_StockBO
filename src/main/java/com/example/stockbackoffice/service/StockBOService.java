@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface StockBOService {
-    List<StockDto> readFromDataFile(MultipartFile uploadedFile, int startRow);
+    List<StockDto> readFromDataFile(MultipartFile uploadedFile, int startRow) throws Exception;
 
     StockDto AddRecord(StockDto dto);
 
